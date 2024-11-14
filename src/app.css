@@ -1,3 +1,42 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer base {
+}
+
+@layer components {
+  .debug {
+    @apply border-2 border-red-500;
+  }
+}
+
+@layer utilities {
+  /* Flex justify-content */
+  .flex.left {
+    @apply justify-start;
+  }
+  .flex.center {
+    @apply justify-center;
+  }
+  .flex.right {
+    @apply justify-end;
+  }
+  .flex.between {
+    @apply justify-between;
+  }
+  .flex.evenly {
+    @apply justify-evenly;
+  }
+
+  /* Flex align-items */
+  .flex.top {
+    @apply items-start;
+  }
+  .flex.middle {
+    @apply items-center;
+  }
+  .flex.bottom {
+    @apply items-end;
+  }
+}
