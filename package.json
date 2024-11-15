@@ -11,10 +11,6 @@
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run"
   },
-  "dependencies": {
-    "@svelteuidev/composables": "^0.15.7",
-    "@svelteuidev/core": "^0.15.7"
-  },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.3.1",
     "@sveltejs/kit": "^2.8.1",
