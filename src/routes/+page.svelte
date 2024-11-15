@@ -1,7 +1,12 @@
-<div class="flex center bottom h-screen w-full debug">
-  <h1>Welcome to SvelteKit</h1>
-  <p>
-    Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the
-    documentation
-  </p>
+<script>
+  import { Alert } from "flowbite-svelte";
+  import { CogOutline } from "flowbite-svelte-icons";
+</script>
+
+<div class="p-8">
+  <Alert>
+    <CogOutline slot="icon" size="xl" class="text-red-500" />
+    <span class="font-medium">error alert!</span>
+    This is an error alert for testing.
+  </Alert>
 </div>
