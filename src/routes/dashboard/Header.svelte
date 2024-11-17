@@ -1,43 +1,51 @@
 <script lang="ts">
+  import SearchModal from "$lib/components/SearchModal.svelte";
   import {
-    Badge,
-    Button,
-    Input,
+    Avatar,
     Navbar,
-    NavBrand,
     NavHamburger,
+    NavLi,
+    NavUl,
+    Select,
   } from "flowbite-svelte";
-  import { SearchOutline } from "flowbite-svelte-icons";
+  import { onMount } from "svelte";
+  import { twMerge } from "tailwind-merge";
+
+  let namespace = "";
+  const namespaces = [
+    { value: "namespace1", name: "Namespace 1" },
+    { value: "namespace2", name: "Namespace 2" },
+    { value: "namespace3", name: "Namespace 3" },
+  ];
+
+  onMount(() => {
+    if (namespace === "") {
+      namespace = namespaces[0].value;
+    }
+  });
 </script>
 
-<!-- todo: implment this, it is Flowbite Svelte example -->
 <Navbar>
-  <NavBrand href="/" class="gap-2">
-    <Badge border rounded color="red">Beta</Badge>
-  </NavBrand>
-  <div class="flex md:order-2">
-    <Button
-      color="none"
-      data-collapse-toggle="mobile-menu-3"
-      aria-controls="mobile-menu-3"
-      aria-expanded="false"
-      class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
-    >
-      <SearchOutline class="w-5 h-5" />
-    </Button>
-    <div class="hidden relative md:block">
-      <div
-        class="flex absolute inset-y-0 start-0 items-center ps-3 pointer-events-none"
-      >
-        <SearchOutline class="w-4 h-4" />
-      </div>
-      <Input id="search-navbar" class="ps-10" placeholder="Search..." />
-    </div>
-    <NavHamburger />
-  </div>
-  <!-- <NavUl>
-    <NavLi href="/">Home</NavLi>
-    <NavLi href="/about">About</NavLi>
-    <NavLi href="/docs/components/navbar">Navbar</NavLi>
-  </NavUl> -->
+  <Select
+    bind:value={namespace}
+    items={namespaces}
+    placeholder={namespace}
+    class="max-w-fit"
+  />
+  <NavHamburger />
+  <NavUl
+    ulClass={twMerge(
+      // the default class created by flowbite-svelte
+      "flex flex-col p-4 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:text-sm md:font-medium",
+      "middle"
+    )}
+  >
+    <NavLi>
+      <SearchModal />
+    </NavLi>
+    <NavLi>
+      <!-- todo: add User dropdown -->
+      <Avatar />
+    </NavLi>
+  </NavUl>
 </Navbar>

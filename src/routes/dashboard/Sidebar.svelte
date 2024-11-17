@@ -45,14 +45,13 @@
         <SidebarItem {label} {href} />
       {/each}
     </SidebarGroup>
-    <SidebarCta
-      spanClass="hidden"
-      class="bg-green-400 flex flex-col middle button"
-    >
-      <Avatar src={$authStore.user?.image} />
-      <P>{$authStore.user?.username}</P>
-      <P class="opacity-60">{$authStore.user?.email}</P>
-      <Button class="mt-6" disabled>Upgrade to Pro</Button>
+    <SidebarCta label="BETA">
+      <div class="flex center middle flex-col">
+        <Avatar src={$authStore.user?.image} />
+        <P>{$authStore.user?.username}</P>
+        <P class="opacity-60">{$authStore.user?.email}</P>
+        <Button class="mt-6" disabled>Upgrade to Pro</Button>
+      </div>
     </SidebarCta>
   </SidebarWrapper>
 </Sidebar>
