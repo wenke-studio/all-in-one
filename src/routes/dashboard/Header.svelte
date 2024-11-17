@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { title } from "$lib/stores/app";
   import {
+    Badge,
     Button,
     Input,
     Navbar,
@@ -12,13 +12,8 @@
 
 <!-- todo: implment this, it is Flowbite Svelte example -->
 <Navbar>
-  <NavBrand href="/">
-    <!-- <img /> -->
-    <span
-      class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
-    >
-      {$title}
-    </span>
+  <NavBrand href="/" class="gap-2">
+    <Badge border rounded color="red">Beta</Badge>
   </NavBrand>
   <div class="flex md:order-2">
     <Button
