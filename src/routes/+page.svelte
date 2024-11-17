@@ -1,4 +1,5 @@
 <script>
+  import { title } from "$lib/stores/app";
   import {
     Button,
     Footer,
@@ -12,14 +13,12 @@
     P,
     Span,
   } from "flowbite-svelte";
-
-  const title = "Hello Svelte";
 </script>
 
 <div class="min-h-dvh w-full">
   <Navbar color="form">
     <NavBrand href="/">
-      <span>{title}</span>
+      <span>{$title}</span>
     </NavBrand>
     <NavHamburger />
     <NavUl>
@@ -30,7 +29,7 @@
   <main class="grid place-content-center p-4">
     <div class="text-center">
       <Heading>Manage your resources</Heading>
-      <Heading>Process with <Span gradient>{title}</Span></Heading>
+      <Heading>Process with <Span gradient>{$title}</Span></Heading>
       <P align="center" class="my-8">A description</P>
       <div class="flex gap-4 center">
         <Button color="dark">Preview</Button>

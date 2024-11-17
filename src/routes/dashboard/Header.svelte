@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { title } from "$lib/stores/app";
   import {
     Button,
     Input,
@@ -7,8 +8,6 @@
     NavHamburger,
   } from "flowbite-svelte";
   import { SearchOutline } from "flowbite-svelte-icons";
-
-  let title: string = "Hello Svelte";
 </script>
 
 <!-- todo: implment this, it is Flowbite Svelte example -->
@@ -18,7 +17,7 @@
     <span
       class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
     >
-      {title}
+      {$title}
     </span>
   </NavBrand>
   <div class="flex md:order-2">

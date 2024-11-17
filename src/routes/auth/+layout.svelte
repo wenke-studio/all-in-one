@@ -1,14 +1,14 @@
 <script lang="ts">
-  let { children } = $props();
+  import { title } from "$lib/stores/app";
   import { Navbar, NavBrand, NavLi, NavUl } from "flowbite-svelte";
 
-  const title: string = "Hello Svelte";
+  let { children } = $props();
 </script>
 
 <div class="min-h-dvh w-full grid">
   <Navbar color="form" class="h-16">
     <NavBrand href="/">
-      <span>{title}</span>
+      <span>{$title}</span>
     </NavBrand>
     <NavUl>
       <NavLi href="/help">Need help?</NavLi>
