@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import { title } from "$lib/stores/app";
   import {
     Sidebar,
@@ -31,7 +32,7 @@
   ];
 </script>
 
-<Sidebar>
+<Sidebar activeUrl={$page.url.pathname}>
   <SidebarWrapper class="h-full border-r border-gray-700">
     <SidebarBrand {site} imgClass="ml-2 h-6 me-3 sm:h-7 bg-gray-300 rounded" />
     <SidebarGroup>
