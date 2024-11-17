@@ -1,5 +1,11 @@
 import { writable } from "svelte/store";
 
-export const authStore = writable<{ user: any | null }>({
+interface User {
+  username: string;
+  email: string;
+  image?: string;
+}
+
+export const authStore = writable<{ user: User | null }>({
   user: null,
 });

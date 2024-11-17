@@ -13,7 +13,7 @@
   } from "flowbite-svelte";
 
   const signIn = () => {
-    authStore.set({ user: { username: "Foo" } });
+    authStore.set({ user: { username: "Foo", email: "foo@example.com" } });
     goto("/dashboard");
   };
 </script>
