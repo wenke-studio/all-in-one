@@ -21,8 +21,6 @@ export async function initalizeClerkClient(
   publishableKey: string,
   options: DefaultOptions = defaultOptions
 ) {
-  console.error("initalizeClerkClient", publishableKey, options);
-
   const instance = new Clerk(publishableKey);
 
   await instance.load(options).catch((error: Error) => {
