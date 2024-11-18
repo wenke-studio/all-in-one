@@ -1,12 +1,17 @@
 <script lang="ts">
+  import { type Clerk } from "@clerk/clerk-js";
   import { Button } from "flowbite-svelte";
-  import clerk from "./store";
+  import ClerkLoaded from "./ClerkLoaded.svelte";
 
-  const signOut = () => {
-    $clerk?.signOut();
+  const signOut = (clerk: Clerk) => {
+    clerk.signOut();
   };
 </script>
 
-<Button on:click={signOut}>
-  <slot>Sign out</slot>
-</Button>
+<ClerkLoaded let:clerk>
+  {#if clerk && clerk.user}
+    <Button on:click={() => signOut(clerk)}>
+      <slot>Sign out</slot>
+    </Button>
+  {/if}
+</ClerkLoaded>

@@ -2,8 +2,6 @@
   import clerk from "./store";
 </script>
 
-<div>
-  {#if $clerk}
-    <slot clerk={$clerk} />
-  {/if}
-</div>
+{#if $clerk}
+  <slot clerk={$clerk} />
+{/if}

@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { type Clerk } from "@clerk/clerk-js";
   import { Button } from "flowbite-svelte";
-  import clerk from "./store";
+  import ClerkLoaded from "./ClerkLoaded.svelte";
 
   interface Props {
     // show sign-in modal or redirect to custom sign-in page
@@ -26,20 +27,24 @@
     children,
   }: Props = $props();
 
-  const signIn = () => {
+  const signIn = (clerk: Clerk) => {
     const opts = { afterSignInUrl, afterSignUpUrl, redirectUrl };
     if (mode === "modal") {
-      $clerk?.openSignIn(opts);
+      clerk?.openSignIn(opts);
     } else {
-      $clerk?.redirectToSignIn(opts);
+      clerk?.redirectToSignIn(opts);
     }
   };
 </script>
 
-<Button on:click={signIn}>
-  {#if children}
-    {@render children()}
-  {:else}
-    Sign In
+<ClerkLoaded let:clerk>
+  {#if clerk && !clerk.user}
+    <Button on:click={() => signIn(clerk)}>
+      {#if children}
+        {@render children()}
+      {:else}
+        Sign In
+      {/if}
+    </Button>
   {/if}
-</Button>
+</ClerkLoaded>
