@@ -22,10 +22,7 @@ export async function initalizeClerkClient(
   options: DefaultOptions = defaultOptions
 ) {
   const instance = new Clerk(publishableKey);
-
-  await instance.load(options).catch((error: Error) => {
-    console.error(error);
-  });
+  await instance.load(options);
 
   instance.addListener((event) => {
     if (event.user) {
