@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clerk from "./store";
+  import { clerk } from "$lib/clerk/store";
 </script>
 
 {#if $clerk}

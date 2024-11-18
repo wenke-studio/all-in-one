@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { type Clerk } from "@clerk/clerk-js";
+  import type { Clerk } from "@clerk/types";
   import { Button } from "flowbite-svelte";
-  import ClerkLoaded from "./ClerkLoaded.svelte";
+  import ClerkLoaded from "../control/ClerkLoaded.svelte";
 
   interface Props {
     // show sign-in modal or redirect to custom sign-in page

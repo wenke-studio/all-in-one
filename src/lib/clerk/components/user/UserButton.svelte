@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Clerk, UserButtonProps } from "@clerk/types";
-  import ClerkLoaded from "./ClerkLoaded.svelte";
+  import ClerkLoaded from "../control/ClerkLoaded.svelte";
 
   const props: UserButtonProps = $props();
 

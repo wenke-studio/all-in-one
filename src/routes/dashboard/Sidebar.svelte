@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import SignedIn from "$lib/clerk/SignedIn.svelte";
+  import { SignedIn } from "$lib/clerk/components";
   import { title } from "$lib/stores/app";
   import {
     Avatar,

@@ -1,5 +1,4 @@
-import type { Clerk } from "@clerk/clerk-js";
+import type { Clerk } from "@clerk/types";
 import { writable } from "svelte/store";
 
-const clerk = writable<Clerk | null>(null);
-export default clerk;
+export const clerk = writable<Clerk | null>(null);

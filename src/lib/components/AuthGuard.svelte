@@ -1,6 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import ClerkLoaded from "$lib/clerk/ClerkLoaded.svelte";
+  import { ClerkLoaded } from "$lib/clerk/components";
 </script>
 
 <ClerkLoaded let:clerk>

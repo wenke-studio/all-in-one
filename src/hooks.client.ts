@@ -1,8 +1,6 @@
-import { initalizeClerkClient } from "$lib/clerk";
+import { clerkProvider } from "$lib/clerk/clerk-provider";
 
-initalizeClerkClient(import.meta.env.VITE_CLERK_PUBLISHABLE_KEY, {
-  afterSignInUrl: "/",
-  signInUrl: "/auth/sign-in",
-  afterSignUpUrl: "/",
-  signUpUrl: "/auth/sign-up",
+clerkProvider({
+  publishableKey: import.meta.env.VITE_CLERK_PUBLISHABLE_KEY,
+  options: { afterSignOutUrl: "/" },
 });

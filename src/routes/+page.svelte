@@ -1,6 +1,5 @@
 <script>
-  import SignInButton from "$lib/clerk/SignInButton.svelte";
-  import UserButton from "$lib/clerk/UserButton.svelte";
+  import { SignInButton, UserButton } from "$lib/clerk/components";
   import { title } from "$lib/stores/app";
   import {
     Button,

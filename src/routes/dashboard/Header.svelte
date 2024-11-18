@@ -1,5 +1,5 @@
 <script lang="ts">
-  import UserButton from "$lib/clerk/UserButton.svelte";
+  import { UserButton } from "$lib/clerk/components";
   import SearchModal from "$lib/components/SearchModal.svelte";
   import { Navbar, NavHamburger, NavLi, NavUl, Select } from "flowbite-svelte";
   import { onMount } from "svelte";
