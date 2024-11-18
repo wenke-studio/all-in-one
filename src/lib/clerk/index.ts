@@ -36,8 +36,4 @@ export async function initalizeClerkClient(
   });
 
   clerk.set(instance);
-
-  clerk.subscribe((clerkInstance) => {
-    if (clerkInstance) window.Clerk = clerkInstance;
-  });
 }
