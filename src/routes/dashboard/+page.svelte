@@ -1,13 +1,5 @@
 <script lang="ts">
-  import { authStore } from "$lib/stores/auth";
   import { Card } from "flowbite-svelte";
-
-  let user = {
-    name: "anonymous",
-  };
-  const signOut = () => {
-    authStore.set({ user: null });
-  };
 </script>
 
 <div class="space-y-4 p-4">

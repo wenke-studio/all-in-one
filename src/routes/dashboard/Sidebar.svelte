@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import SignedIn from "$lib/clerk/SignedIn.svelte";
   import { title } from "$lib/stores/app";
-  import { authStore } from "$lib/stores/auth";
   import {
     Avatar,
     Button,
@@ -47,10 +47,17 @@
     </SidebarGroup>
     <SidebarCta label="BETA">
       <div class="flex center middle flex-col">
-        <Avatar src={$authStore.user?.image} />
-        <P>{$authStore.user?.username}</P>
-        <P class="opacity-60">{$authStore.user?.email}</P>
-        <Button class="mt-6" disabled>Upgrade to Pro</Button>
+        <SignedIn let:user>
+          <Avatar
+            src={user.hasImage ? user.imageUrl : ""}
+            alt={user.username ?? "user"}
+          />
+          <P>{user.username}</P>
+          <P class="opacity-60">
+            {user.emailAddresses[0].emailAddress}
+          </P>
+          <Button class="mt-6" disabled>Upgrade to Pro</Button>
+        </SignedIn>
       </div>
     </SidebarCta>
   </SidebarWrapper>
