@@ -1,13 +1,7 @@
 <script lang="ts">
+  import { UserButton } from "$lib/clerk/components";
   import SearchModal from "$lib/components/SearchModal.svelte";
-  import {
-    Avatar,
-    Navbar,
-    NavHamburger,
-    NavLi,
-    NavUl,
-    Select,
-  } from "flowbite-svelte";
+  import { Navbar, NavHamburger, NavLi, NavUl, Select } from "flowbite-svelte";
   import { onMount } from "svelte";
   import { twMerge } from "tailwind-merge";
 
@@ -45,7 +39,7 @@
     </NavLi>
     <NavLi>
       <!-- todo: add User dropdown -->
-      <Avatar />
+      <UserButton />
     </NavLi>
   </NavUl>
 </Navbar>

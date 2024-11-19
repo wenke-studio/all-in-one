@@ -1,4 +1,5 @@
 <script>
+  import { SignInButton, UserButton } from "$lib/clerk/components";
   import { title } from "$lib/stores/app";
   import {
     Button,
@@ -22,7 +23,10 @@
     </NavBrand>
     <NavHamburger />
     <NavUl>
-      <NavLi href="/auth/sign-in">Sign in</NavLi>
+      <NavLi>
+        <UserButton afterSignOutUrl="/" userProfileMode="modal" />
+        <SignInButton afterSignInUrl="/dashboard" afterSignUpUrl="/dashboard" />
+      </NavLi>
     </NavUl>
   </Navbar>
 
@@ -33,7 +37,8 @@
       <P align="center" class="my-8">A description</P>
       <div class="flex gap-4 center">
         <Button color="dark">Preview</Button>
-        <Button href="/auth/sign-up" color="alternative">Sign up</Button>
+        <!-- todo: use sign-up-button instead of sign-up-link here -->
+        <!-- <Button href="/auth/sign-up" color="alternative">Sign up</Button> -->
       </div>
     </div>
   </main>
