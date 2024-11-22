@@ -16,10 +16,10 @@
   } from "flowbite-svelte";
 </script>
 
-<div class="min-h-dvh w-full">
+<div class="min-h-dvh w-full grid grid-rows-[auto_1fr_auto]">
   <Navbar color="form">
     <NavBrand href="/">
-      <span>{$title}</span>
+      <span class="capitalize">{$title}</span>
     </NavBrand>
     <NavHamburger />
     <NavUl>
@@ -33,17 +33,19 @@
   <main class="grid place-content-center p-4">
     <div class="text-center">
       <Heading>Manage your resources</Heading>
-      <Heading>Process with <Span gradient>{$title}</Span></Heading>
+      <Heading
+        >Process with <Span gradient class="capitalize">{$title}</Span></Heading
+      >
       <P align="center" class="my-8">A description</P>
       <div class="flex gap-4 center">
-        <Button color="dark">Preview</Button>
+        <Button color="dark" disabled>Preview</Button>
         <!-- todo: use sign-up-button instead of sign-up-link here -->
         <!-- <Button href="/auth/sign-up" color="alternative">Sign up</Button> -->
       </div>
     </div>
   </main>
 
-  <Footer>
+  <Footer class="h-16">
     <FooterCopyright href="/" by="Wenke Lai" year={2024} />
   </Footer>
 </div>

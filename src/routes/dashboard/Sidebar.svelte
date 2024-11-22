@@ -39,7 +39,11 @@
 
 <Sidebar activeUrl={$page.url.pathname}>
   <SidebarWrapper class="h-full border-r border-gray-700 flex flex-col">
-    <SidebarBrand {site} imgClass="ml-2 h-6 me-3 sm:h-7 bg-gray-300 rounded" />
+    <SidebarBrand
+      {site}
+      imgClass="ml-2 h-6 me-3 sm:h-7 bg-gray-300 rounded"
+      spanClass="self-center text-xl font-semibold whitespace-nowrap dark:text-white capitalize"
+    />
     <SidebarGroup class="flex-grow">
       {#each routes as { label, href }}
         <SidebarItem {label} {href} />
