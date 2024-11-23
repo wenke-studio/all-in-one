@@ -9,6 +9,7 @@
     Sidebar,
     SidebarBrand,
     SidebarCta,
+    SidebarDropdownWrapper,
     SidebarGroup,
     SidebarItem,
     SidebarWrapper,
@@ -21,19 +22,40 @@
     img: "/src/lib/assets/icons/logo.svg",
   };
 
-  const routes = [
-    {
-      label: "Home",
-      href: "/dashboard",
-    },
-    {
-      label: "Protected",
-      href: "/dashboard/protected",
-    },
-    {
-      label: "Profile",
-      href: "/dashboard/profile",
-    },
+  const routes = [{ label: "Home", href: "/dashboard" }];
+
+  const financeRoutes = [
+    { label: "Accounting", href: "/dashboard/accounting" },
+    { label: "Invoicing", href: "/dashboard/invoicing" },
+    { label: "Expenses", href: "/dashboard/expenses" },
+    { label: "Purchase", href: "/dashboard/purchase" },
+  ];
+
+  const hrRoutes = [
+    { label: "Employees", href: "/dashboard/employees" },
+    { label: "Recruitment", href: "/dashboard/recruitment" },
+    { label: "Time Off", href: "/dashboard/time-off" },
+    { label: "Appraisals", href: "/dashboard/appraisals" },
+    { label: "Referral", href: "/dashboard/referral" },
+  ];
+
+  const marketingRoutes = [
+    { label: "Email", href: "/dashboard/email" },
+    { label: "Social Media", href: "/dashboard/social-media" },
+  ];
+
+  const salesRoutes = [
+    { label: "CRM", href: "/dashboard/crm" },
+    { label: "Sales", href: "/dashboard/sales" },
+    { label: "Subscriptions", href: "/dashboard/subscriptions" },
+  ];
+
+  const servicesRoutes = [
+    { label: "Timesheet", href: "/dashboard/timesheet" },
+    { label: "Project", href: "/dashboard/project" },
+    { label: "Helpdesk", href: "/dashboard/helpdesk" },
+    { label: "Appointments", href: "/dashboard/appointments" },
+    { label: "Knowledge", href: "/dashboard/knowledge" },
   ];
 </script>
 
@@ -44,11 +66,34 @@
       imgClass="ml-2 h-6 me-3 sm:h-7 bg-gray-300 rounded"
       spanClass="self-center text-xl font-semibold whitespace-nowrap dark:text-white capitalize"
     />
-    <SidebarGroup class="flex-grow">
-      {#each routes as { label, href }}
+    <SidebarDropdownWrapper label="Finance">
+      {#each financeRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
-    </SidebarGroup>
+    </SidebarDropdownWrapper>
+    <SidebarDropdownWrapper label="HR">
+      {#each hrRoutes as { label, href }}
+        <SidebarItem {label} {href} />
+      {/each}
+    </SidebarDropdownWrapper>
+    <SidebarDropdownWrapper label="Marketing">
+      {#each marketingRoutes as { label, href }}
+        <SidebarItem {label} {href} />
+      {/each}
+    </SidebarDropdownWrapper>
+    <SidebarDropdownWrapper label="Sales">
+      {#each salesRoutes as { label, href }}
+        <SidebarItem {label} {href} />
+      {/each}
+    </SidebarDropdownWrapper>
+    <SidebarDropdownWrapper label="Services">
+      {#each servicesRoutes as { label, href }}
+        <SidebarItem {label} {href} />
+      {/each}
+    </SidebarDropdownWrapper>
+
+    <SidebarGroup class="flex-grow"></SidebarGroup>
+
     <SidebarCta label="BETA">
       <div class="flex center middle flex-col">
         <SignedIn let:user>

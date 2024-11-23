@@ -11,7 +11,9 @@
     <Sidebar />
     <div>
       <Header />
-      {@render children()}
+      <main class="p-4">
+        {@render children()}
+      </main>
     </div>
   </div>
 </AuthGuard>
