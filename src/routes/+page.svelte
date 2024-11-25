@@ -1,5 +1,6 @@
 <script>
   import { SignInButton, UserButton } from "$lib/clerk/components";
+  import ToggleMode from "$lib/components/ToggleMode.svelte";
   import { title } from "$lib/stores/app";
   import {
     Button,
@@ -23,6 +24,9 @@
     </NavBrand>
     <NavHamburger />
     <NavUl>
+      <NavLi>
+        <ToggleMode />
+      </NavLi>
       <NavLi>
         <UserButton afterSignOutUrl="/" userProfileMode="modal" />
         <SignInButton afterSignInUrl="/dashboard" afterSignUpUrl="/dashboard" />
