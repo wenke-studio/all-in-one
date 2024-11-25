@@ -57,6 +57,12 @@
     { label: "Appointments", href: "/dashboard/appointments" },
     { label: "Knowledge", href: "/dashboard/knowledge" },
   ];
+
+  let selectedMenu = "";
+  const open = (e: MouseEvent) => {
+    const name = (e.target as HTMLElement).innerText;
+    selectedMenu = name;
+  };
 </script>
 
 <Sidebar activeUrl={$page.url.pathname}>
@@ -66,27 +72,47 @@
       imgClass="ml-2 h-6 me-3 sm:h-7 bg-gray-300 rounded"
       spanClass="self-center text-xl font-semibold whitespace-nowrap dark:text-white capitalize"
     />
-    <SidebarDropdownWrapper label="Finance">
+    <SidebarDropdownWrapper
+      label="Finance"
+      on:click={open}
+      isOpen={selectedMenu === "Finance"}
+    >
       {#each financeRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
     </SidebarDropdownWrapper>
-    <SidebarDropdownWrapper label="HR">
+    <SidebarDropdownWrapper
+      label="HR"
+      on:click={open}
+      isOpen={selectedMenu === "HR"}
+    >
       {#each hrRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
     </SidebarDropdownWrapper>
-    <SidebarDropdownWrapper label="Marketing">
+    <SidebarDropdownWrapper
+      label="Marketing"
+      on:click={open}
+      isOpen={selectedMenu === "Marketing"}
+    >
       {#each marketingRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
     </SidebarDropdownWrapper>
-    <SidebarDropdownWrapper label="Sales">
+    <SidebarDropdownWrapper
+      label="Sales"
+      on:click={open}
+      isOpen={selectedMenu === "Sales"}
+    >
       {#each salesRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
     </SidebarDropdownWrapper>
-    <SidebarDropdownWrapper label="Services">
+    <SidebarDropdownWrapper
+      label="Services"
+      on:click={open}
+      isOpen={selectedMenu === "Services"}
+    >
       {#each servicesRoutes as { label, href }}
         <SidebarItem {label} {href} />
       {/each}
