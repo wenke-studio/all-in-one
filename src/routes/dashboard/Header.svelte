@@ -2,6 +2,14 @@
   import { UserButton } from "$lib/clerk/components";
   import SearchModal from "$lib/components/SearchModal.svelte";
   import { Header } from "$lib/components/ui/header";
+  import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectGroupHeading,
+    SelectItem,
+    SelectTrigger,
+  } from "$lib/components/ui/select";
   import { onMount } from "svelte";
 
   let namespace = "";
@@ -19,7 +27,19 @@
 </script>
 
 <Header>
-  <!-- todo: Select component has a bug -->
+  <Select type="single" bind:value={namespace}>
+    <SelectTrigger>
+      {namespace}
+    </SelectTrigger>
+    <SelectContent>
+      <SelectGroup>
+        <SelectGroupHeading>Namespaces</SelectGroupHeading>
+        {#each namespaces as ns}
+          <SelectItem value={ns.value}>{ns.name}</SelectItem>
+        {/each}
+      </SelectGroup>
+    </SelectContent>
+  </Select>
   <ul class="p-4 flex middle gap-4">
     <li>
       <SearchModal />
