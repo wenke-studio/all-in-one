@@ -22,8 +22,6 @@
     img: "/src/lib/assets/icons/logo.svg",
   };
 
-  const routes = [{ label: "Home", href: "/dashboard" }];
-
   const financeRoutes = [
     { label: "Accounting", href: "/dashboard/accounting" },
     { label: "Invoicing", href: "/dashboard/invoicing" },
@@ -65,6 +63,7 @@
   };
 </script>
 
+<!-- todo: rewrite with shadcn-svelte -->
 <Sidebar activeUrl={$page.url.pathname}>
   <SidebarWrapper class="h-full border-r border-gray-700 flex flex-col">
     <SidebarBrand

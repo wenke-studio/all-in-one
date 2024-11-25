@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Card } from "flowbite-svelte";
+  import { Card } from "$lib/components/ui/card";
 </script>
 
 <div class="space-y-4 p-4">

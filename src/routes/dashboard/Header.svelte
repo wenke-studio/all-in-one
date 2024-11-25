@@ -1,9 +1,8 @@
 <script lang="ts">
   import { UserButton } from "$lib/clerk/components";
   import SearchModal from "$lib/components/SearchModal.svelte";
-  import { Navbar, NavHamburger, NavLi, NavUl, Select } from "flowbite-svelte";
+  import { Header } from "$lib/components/ui/header";
   import { onMount } from "svelte";
-  import { twMerge } from "tailwind-merge";
 
   let namespace = "";
   const namespaces = [
@@ -19,27 +18,15 @@
   });
 </script>
 
-<Navbar>
-  <Select
-    bind:value={namespace}
-    items={namespaces}
-    placeholder={namespace}
-    class="max-w-fit"
-  />
-  <NavHamburger />
-  <NavUl
-    ulClass={twMerge(
-      // the default class created by flowbite-svelte
-      "flex flex-col p-4 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:text-sm md:font-medium",
-      "middle"
-    )}
-  >
-    <NavLi>
+<Header>
+  <!-- todo: Select component has a bug -->
+  <ul class="p-4 flex middle gap-4">
+    <li>
       <SearchModal />
-    </NavLi>
-    <NavLi>
+    </li>
+    <li>
       <!-- todo: add User dropdown -->
       <UserButton />
-    </NavLi>
-  </NavUl>
-</Navbar>
+    </li>
+  </ul>
+</Header>

@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { Button } from "$lib/components/ui/button";
   import type { Clerk } from "@clerk/types";
-  import { Button } from "flowbite-svelte";
   import ClerkLoaded from "../control/ClerkLoaded.svelte";
 
   const signOut = (clerk: Clerk) => {
@@ -10,7 +10,7 @@
 
 <ClerkLoaded let:clerk>
   {#if clerk && clerk.user}
-    <Button on:click={() => signOut(clerk)}>
+    <Button onclick={() => signOut(clerk)}>
       <slot>Sign out</slot>
     </Button>
   {/if}

@@ -1,7 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
   import { page } from "$app/stores";
-  import { Heading, P } from "flowbite-svelte";
   import { onMount } from "svelte";
 
   let countdown = 5;
@@ -20,6 +19,6 @@
 </script>
 
 <div class="">
-  <Heading>{$page.status}: {$page.error?.message}</Heading>
-  <P>Redirecting in {countdown} seconds...</P>
+  <h1>{$page.status}: {$page.error?.message}</h1>
+  <p>Redirecting in {countdown} seconds...</p>
 </div>

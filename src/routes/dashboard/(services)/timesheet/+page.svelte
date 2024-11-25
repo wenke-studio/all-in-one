@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { P } from "flowbite-svelte";
 </script>
 
-<P>Timesheet</P>
+<p>Timesheet</p>

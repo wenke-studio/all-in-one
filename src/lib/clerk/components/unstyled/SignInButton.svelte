@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { Button } from "$lib/components/ui/button";
   import type { Clerk } from "@clerk/types";
-  import { Button } from "flowbite-svelte";
   import ClerkLoaded from "../control/ClerkLoaded.svelte";
 
   interface Props {
@@ -39,7 +39,7 @@
 
 <ClerkLoaded let:clerk>
   {#if clerk && !clerk.user}
-    <Button on:click={() => signIn(clerk)}>
+    <Button onclick={() => signIn(clerk)}>
       {#if children}
         {@render children()}
       {:else}
